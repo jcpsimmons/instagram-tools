@@ -2,20 +2,10 @@ import React, { useState } from "react";
 import styles from "./FramedPreview.module.scss";
 
 export default function FramedPreview({ image }) {
-  const [dims, setDims] = useState({ height: 0, width: 0 });
   const {
     data_url,
     file: { lastModified, size, name, type },
   } = image;
-
-  const img = new Image();
-
-  img.src = data_url;
-
-  img.onload = () => {
-    const imgWidth = img.naturalWidth;
-    const imgHeight = img.naturalHeight;
-  };
 
   const unixArr = (Math.floor(Date.now() / 1000) + "").split("");
 
@@ -38,7 +28,8 @@ export default function FramedPreview({ image }) {
         </div>
       </div>
       <div className={styles.watermark}>
-        <span>Josh C. Simmons {new Date().getFullYear()}</span>
+        <div className={styles.line}></div>
+        <div>Josh C. Simmons {new Date().getFullYear()}</div>
       </div>
     </div>
   );
