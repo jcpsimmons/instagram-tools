@@ -77,12 +77,14 @@
       Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-weight: 800;
     font-size: 24px;
+    white-space: nowrap;
+    margin-top: 15px;
 
     .line {
       border-top: 1px solid black;
       flex-grow: 1;
       margin-right: 15px;
-      margin-left: -40px;
+      margin-left: -39px;
     }
   }
 }
