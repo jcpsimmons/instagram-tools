@@ -1,12 +1,21 @@
-import React from "react";
-import { INSTAGRAM_DIMS } from "../constants";
+import React, { useState } from "react";
 import styles from "./FramedPreview.module.scss";
 
 export default function FramedPreview({ image }) {
+  const [dims, setDims] = useState({ height: 0, width: 0 });
   const {
     data_url,
     file: { lastModified, size, name, type },
   } = image;
+
+  const img = new Image();
+
+  img.src = data_url;
+
+  img.onload = () => {
+    const imgWidth = img.naturalWidth;
+    const imgHeight = img.naturalHeight;
+  };
 
   const unixArr = (Math.floor(Date.now() / 1000) + "").split("");
 
@@ -14,7 +23,6 @@ export default function FramedPreview({ image }) {
     <div className={styles.framedpreview}>
       <div>
         <img src={data_url} alt="" />
-
         <div className={styles.datastamp}>
           <div>{lastModified}</div>
           <div>{size}</div>
@@ -30,7 +38,7 @@ export default function FramedPreview({ image }) {
         </div>
       </div>
       <div className={styles.watermark}>
-        <span>Josh C. Simmons 2022</span>
+        <span>Josh C. Simmons {new Date().getFullYear()}</span>
       </div>
     </div>
   );

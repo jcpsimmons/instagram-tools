@@ -7,7 +7,7 @@ import FramedPreview from "./FramedPreview";
 export default function MultiGallery() {
   const [images, setImages] = useState([]);
   const [exportIndex, setExportingIndex] = useState(0);
-  const maxNumber = 69;
+
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
     console.log(imageList, addUpdateIndex);
@@ -21,7 +21,6 @@ export default function MultiGallery() {
         multiple
         value={images}
         onChange={onChange}
-        maxNumber={maxNumber}
         dataURLKey="data_url"
         acceptType={["jpg"]}
       >
