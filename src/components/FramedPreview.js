@@ -8,15 +8,29 @@ export default function FramedPreview({ image }) {
     file: { lastModified, size, name, type },
   } = image;
 
+  const unixArr = (Math.floor(Date.now() / 1000) + "").split("");
+
   return (
     <div className={styles.framedpreview}>
-      <img src={data_url} style={{ width: "90%" }} alt="" />
-      <div className={styles.name}>Josh C. Simmons 2022</div>
-      <div className={styles.datastamp}>
-        <span>{lastModified}</span>
-        <span>{size}</span>
-        <span>{name}</span>
-        <span>{type}</span>
+      <div>
+        <img src={data_url} alt="" />
+
+        <div className={styles.datastamp}>
+          <div>{lastModified}</div>
+          <div>{size}</div>
+          <div>{name}</div>
+          <div>{type}</div>
+        </div>
+        <div className={styles.unix}>
+          {unixArr.map((number) => (
+            <div className={Math.random() > 0.7 ? styles.spacer : ""}>
+              {number}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className={styles.watermark}>
+        <span>Josh C. Simmons 2022</span>
       </div>
     </div>
   );
