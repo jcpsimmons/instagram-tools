@@ -17,7 +17,7 @@ export default function MultiGallery() {
   console.log(images);
 
   const handleExport = (exportNumber) => {
-    if (exportNumber > images.length - 1) {
+    if (exportNumber > images.length) {
       return null;
     }
     setSelectedImage(exportNumber);

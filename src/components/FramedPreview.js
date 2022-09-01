@@ -16,7 +16,7 @@ export default function FramedPreview({ image }) {
         <div className={styles.datastamp}>
           <div>{lastModified}</div>
           <div>{size}</div>
-          <div>{name}</div>
+          <div>{name.substring(0, 40)}</div>
           <div>{type}</div>
         </div>
         <div className={styles.unix}>
